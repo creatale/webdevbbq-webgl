@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>WebGL Inspirational Showcase</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+		img {
+			background: #fff !important;
+			border: 5px solid #fff !important;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>WebGL Inspirational Showcase</h1>
+					<h2><a href="mailto:christian.dittrich@creatale.de?subject=Dein%20Vortrag%20beim%20WebDev%20BBQ">Christian Dittrich</a>, <a href="http://creatale.de">creatale GmbH</a></h2>
+					<p>WebDev BBQ, 16.12.2014</p>
+				</section>
+
+				<section>
+					<img width="50%" src="images/WebGL-Logo.png"/>
+					
+					<p>OpenGL ES 2.0 in the browser<p>
+					<p><a href="http://caniuse.com/#feat=webgl">Caniuse: Global 74.64%, Germany 85.46%</a></p>
+				</section>
+				
+				<section>
+					<h1>3D in the browser? Why?</h1>
+					<img src="images/Unreal-Engine-3-castle.jpg" />
+				</section>
+				
+				<section>
+					<h1>Getting started</h1>
+					<p><a href="http://threejs.org">Three.js</a> <a href="examples/threejs.html">(example)</a></p>
+					<pre><code data-trim class="javascript">
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+camera.position.z = 5;
+var render = function () {
+	requestAnimationFrame( render );
+	cube.rotation.x += 0.1;
+	cube.rotation.y += 0.1;
+	renderer.render(scene, camera);
+};
+render();
+					</code></pre>
+				</section>
+				
+				<section>
+					<h1>Game Engines</h1>
+					<p><a href="https://playcanvas.com">PlayCanvas</a></p>
+					<p><a href="http://voxeljs.com">voxel.js</a></p>
+					<p><a href="http://biz.turbulenz.com/samples">Turbulenz</a></p>
+					<p><a href="www.google.de/search?q=3d+web+game+engine&ie=UTF-8&oe=UTF-8">and many more</a></p>
+				</section>
+				
+				<section>
+					<h1>Additional skills needed</h1>
+					<p>Maths (linear algebra)</p>
+					<p>Shader development</p>
+					<p>Modelling</p>
+					<p>Animating</p>
+					<p>Texturing</p>
+				</section>
+				
+				<section>
+					<h1>Additional problems</h1>
+					<p>Navigating in 3D (don't do <a href="http://www.mecabricks.com/en/models/4qxv4BRE2dJ">this</a>)</p>
+					<p>Occlusion (leads to confusion in data presentation)</p>
+					<p>Graphics card can be anonther performance bottleneck</p>
+				</section>
+				
+				<section>
+					<h1>More than OpenGL</h1>
+					<p>CSS3D <a href="http://caniuse.com/#feat=transforms3d">(Caniuse: Global 87.52%, Germany 94.49%)</a></p>
+					<p>Hardware accelerated compositing</p>
+				</section>
+				
+				<section>
+					<h1>3D in the browser? Why? (2)</h1>
+					<p><a href="http://glecollinet.github.io/webgl-demo/">Amazing</a> <a href="http://mrdoob.github.io/three.js/examples/css3d_periodictable.html">effects</a> <a href="http://acko.net">without Flash</a></p>
+					<p><a href="http://pestnoproblem.ca/product/gardenhome-bulb-duster-dust-granule-applicator/">New use cases</a></p>
+					<p><a href="http://armsglobe.chromeexperiments.com">Information visualization</a></p>
+					<p><a href="http://acko.net/blog/making-mathbox/">Presentations</a></p>
+				</section>
+				
+				<section>
+					<h1>... and certainly games!</h1>
+				</section>
+				
+				<section>
+					<h1>Grand Theft Ambulance</h1>
+					<a href="http://gta.creatale.de"><img src="images/gta.png" /></a>
+				</section>
+				
+				<section>
+					<h1>Drone-Ops</h1>
+					<a href="http://drone-ops.creatale.de"><img src="images/droneops.png" /></a>
+				</section>
+				
+				<section>
+					<h1>Battle Feast (mobile!)</h1>
+					<img src="images/battlefeast.png" />
+				</section>
+				
+				<section>
+					<h1>Get creative!</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
